@@ -9,13 +9,82 @@ secret_word = random.choice(words)
 #this sets the game state
 guessed_letters = []
 incorrect_guesses = 0
-max_guesses = 10
+max_guesses = 6
 
 #create the list of underscores for each letter in secret_word
 display_word = ['_'] * len(secret_word)
 
+#strings that show each stage of the hangman
+hangman_stages = [
+    """
+       -----
+       |   |
+       |   
+       |  
+       |   
+       |    
+    --------
+    """,
+    """
+       -----
+       |   |
+       |   O
+       |  
+       |   
+       |    
+    --------
+    """,
+    """
+       -----
+       |   |
+       |   O
+       |   |
+       |   
+       |    
+    --------
+    """,
+    """
+       -----
+       |   |
+       |   O
+       |  /|
+       |  
+       |    
+    --------
+    """,
+    """
+       -----
+       |   |
+       |   O
+       |  /|\
+       |  
+       |    
+    --------
+    """,
+    """
+       -----
+       |   |
+       |   O
+       |  /|\
+       |  / 
+       |    
+    --------
+    """,
+    """
+       -----
+       |   |
+       |   O
+       |  /|\
+       |  / \
+       |    
+    --------
+    """
+]
+
+
 #show the player what they're guessing
 print("".join(display_word))
+print(hangman.stages[incorrect_guesses])
 
 #the main game loop
 while incorrect_guesses < max_guesses:
